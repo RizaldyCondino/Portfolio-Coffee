@@ -14,17 +14,6 @@ const BORDER = "#e0d8cc";
 const MUTED = "#9e9080";
 const INK = "#1a1a1a";
 
-function Tag({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      className="text-xs tracking-widest uppercase"
-      style={{ color: MUTED }}
-    >
-      {children}
-    </span>
-  );
-}
-
 export function SmallFooter() {
   return (
     <footer
@@ -46,7 +35,7 @@ export function SmallFooter() {
               </span>
             </div>
 
-            <p className="text-sm text-center md:text-left" style={{ color: MUTED }}>
+            <p className="text-[10px] text-center md:text-left" style={{ color: MUTED }}>
               © {new Date().getFullYear()} Rizaldy Condino. All Rights Reserved.
             </p>
           </div>
@@ -103,20 +92,7 @@ export function SmallFooter() {
                 </TooltipContent>
               </Tooltip>
 
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    href="tel:+639xxxxxxxxx"   {/* ← Replace with your number */}
-                    className="hover:text-orange-700 transition-colors p-2 -m-2 rounded-full hover:bg-white/70"
-                    style={{ color: INK }}
-                  >
-                    <Phone size={24} />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Contact Number</p>
-                </TooltipContent>
-              </Tooltip>
+             
             </div>
           </TooltipProvider>
 
@@ -130,12 +106,13 @@ export function SmallFooter() {
               rizaldycondino07@gmail.com
             </a>
             
+            {/* Replace with your actual number */}
             <a
-              href="tel:+639xxxxxxxxx"   {/* ← Replace with your number */}
-              className="hover:underline transition-all text-sm mt-1"
+             
+              className=" transition-all text-sm mt-1"
               style={{ color: "#5a5148" }}
             >
-              +63 9XX XXX XXXX
+              +63 930 3817388
             </a>
 
             <div className="flex items-center gap-1.5 text-xs mt-3" style={{ color: MUTED }}>
