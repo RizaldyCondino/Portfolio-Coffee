@@ -9,6 +9,9 @@ import { SmallFooter } from "@/components/SmallFooter";
 export const metadata: Metadata = {
   title: "Rizaldy | Portfolio",
   description: "Portfolio",
+  icons: {
+    icon: "/Images/remove2.png",
+  },
 };
 
 export default function RootLayout({

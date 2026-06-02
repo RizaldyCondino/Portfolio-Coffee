@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 
+
+
 const RootLayout = ({
   children
 }: Readonly<{

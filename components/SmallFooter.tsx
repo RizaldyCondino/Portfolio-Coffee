@@ -1,3 +1,4 @@
+"use client"
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";

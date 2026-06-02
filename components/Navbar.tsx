@@ -8,6 +8,7 @@ function usePhilippinesTime() {
     new Date().toLocaleTimeString("en-IN", {
       hour: "2-digit",
       minute: "2-digit",
+      second: "2-digit", // Added seconds so you can see it working
       timeZone: "Asia/Manila",
       hour12: false,
     });
@@ -15,7 +16,11 @@ function usePhilippinesTime() {
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    const id = setInterval(() => setTime(fmt()), 30_000);
+    // Set time immediately on mount
+    setTime(fmt());
+    
+    // Update every 1 second
+    const id = setInterval(() => setTime(fmt()), 1000);
     return () => clearInterval(id);
   }, []);
 
@@ -24,7 +29,7 @@ function usePhilippinesTime() {
 
 export function NavBar() {
   const [active, setActive] = useState("Home");
-  const time = usePhilippinesTime();
+  const time = usePhilippinesTime(); // This now holds your live time
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -109,7 +114,7 @@ export function NavBar() {
               className="text-xs tracking-widest uppercase"
               style={{ color: "#9e9080" }}
             >
-              Philippines · {""} PST
+              Philippines · {time} PST
             </span>
             <a
               href="#contact"
