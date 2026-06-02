@@ -1,4 +1,3 @@
-"use client"
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
@@ -29,9 +28,11 @@ function Tag({ children }: { children: React.ReactNode }) {
 export function SmallFooter() {
   return (
     <footer
-      style={{ backgroundColor: CREAM }}
       className="w-full border-t"
-      style={{ borderColor: BORDER }}
+      style={{
+        backgroundColor: CREAM,
+        borderColor: BORDER,
+      }}
     >
       <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -102,11 +103,10 @@ export function SmallFooter() {
                 </TooltipContent>
               </Tooltip>
 
-              {/* New: Phone / Contact Number */}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
-                    href="tel:+639123456789"   // ← Change this to your real number
+                    href="tel:+639xxxxxxxxx"   {/* ← Replace with your number */}
                     className="hover:text-orange-700 transition-colors p-2 -m-2 rounded-full hover:bg-white/70"
                     style={{ color: INK }}
                   >
@@ -120,7 +120,7 @@ export function SmallFooter() {
             </div>
           </TooltipProvider>
 
-          {/* Right Side - Email & Credit */}
+          {/* Right Side - Email & Phone */}
           <div className="flex flex-col items-center md:items-end gap-1 text-sm">
             <a
               href="mailto:rizaldycondino07@gmail.com"
@@ -131,14 +131,18 @@ export function SmallFooter() {
             </a>
             
             <a
-              href="tel:+639123456789"   // ← Change this too
+              href="tel:+639xxxxxxxxx"   {/* ← Replace with your number */}
               className="hover:underline transition-all text-sm mt-1"
               style={{ color: "#5a5148" }}
             >
-              + 639 303817388
+              +63 9XX XXX XXXX
             </a>
 
-           
+            <div className="flex items-center gap-1.5 text-xs mt-3" style={{ color: MUTED }}>
+              <span>Made with</span>
+              <span style={{ color: ORANGE }}>♥</span>
+              <span>in the Philippines</span>
+            </div>
           </div>
         </div>
       </div>
