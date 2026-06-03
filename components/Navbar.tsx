@@ -31,24 +31,23 @@ export function NavBar() {
   const time = usePhilippinesTime();
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const handleScroll = () => {
+      const scrollY = window.scrollY + window.innerHeight * 0.3;
 
-    navLinks.forEach((label) => {
-      const el = document.getElementById(label.toLowerCase());
-      if (!el) return;
+      let current = navLinks[0];
+      navLinks.forEach((label) => {
+        const el = document.getElementById(label.toLowerCase());
+        if (el && el.offsetTop <= scrollY) {
+          current = label;
+        }
+      });
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(label);
-        },
-        { threshold: 0.5 },
-      );
+      setActive(current);
+    };
 
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
