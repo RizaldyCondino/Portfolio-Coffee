@@ -19,7 +19,7 @@ const scrollToSection = (id: string) => {
 export function HeroSection() {
   return (
     <section style={{ backgroundColor: "#f5f0e8",  }} className="w-full">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-12 md:py-16 lg:py-15">
+      <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-12 md:py-13 lg:py-14">
         
         <div className="flex flex-col md:flex-row items-start lg:items-center gap-12 lg:gap-20">
           
@@ -54,13 +54,13 @@ export function HeroSection() {
                 }
               }}
             >
-              <motion.span className="block" style={{ color: "#1a1a1a" }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+              <motion.span className="block tracking-wider" style={{ color: "#1a1a1a" }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
                 Learn.
               </motion.span>
-              <motion.span className="block" style={{ color: "#1a1a1a" }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+              <motion.span className="block tracking-wider" style={{ color: "#1a1a1a" }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
                 Build.
               </motion.span>
-              <motion.span className="block" style={{ color: "#bf5220" }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+              <motion.span className="block tracking-wider" style={{ color: "#bf5220" }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
                 Loop.
               </motion.span>
             </motion.h1>

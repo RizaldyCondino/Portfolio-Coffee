@@ -24,7 +24,7 @@ export default function RootLayout({
       <NavBar />
 
       <main>
-        <section id="home" className="min-h-screen py-8">
+        <section id="home" className="min-h-screen ">
           {children}
         </section>
 
