@@ -1,5 +1,5 @@
 "use client"
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Heart, Mail, MapPin, Phone } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import {
@@ -112,7 +112,7 @@ export function SmallFooter() {
 
             <div className="flex items-center gap-1.5 text-xs mt-3" style={{ color: MUTED }}>
               <span>Made with</span>
-              <span style={{ color: ORANGE }}>♥</span>
+              <span style={{ color: ORANGE }}><Heart/></span>
               <span>in the Philippines</span>
             </div>
           </div>
