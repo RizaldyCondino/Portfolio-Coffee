@@ -1,15 +1,10 @@
 import { ExternalLink } from "lucide-react";
 import { SiGithub } from "react-icons/si";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 interface Project {
   id: string | number;
   image: string;
+  video?: string;
   title: string;
   client: string;
   year: string | number;
@@ -19,44 +14,57 @@ interface Project {
   liveDemoUrl?: string;
 }
 
-interface ProjectCardProps {
-  project: Project;
-}
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div
-      className="flex flex-col group cursor-pointer border rounded-sm overflow-hidden transition-all hover:-translate-y-0.5 hover:shadow-xl"
-      style={{ borderColor: "#e0d8cc" }}
-    >
-      {/* Project Card Image Container - Moved to absolute top */}
-      <div className="w-full h-56 overflow-hidden will-change-transform">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
-        />
+    <div className="flex flex-col md:flex-row gap-10 py-10 group">
+      {/* Image — left side */}
+      <div className="relative md:w-[55%] shrink-0 overflow-hidden rounded-sm">
+        {project.video ? (
+          <video
+            src={project.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+          />
+        )}
+
+        {/* Badge overlay
+  <div
+    className="absolute bottom-3.5 left-3.5 flex items-center gap-2 bg-white px-3 py-1.5 text-[10px] tracking-widest uppercase font-semibold"
+    style={{ color: "#1a1a1a" }}
+  >
+    <span className="w-1.5 h-1.5 rounded-full bg-[#bf5220] shrink-0" />
+    {project.title} · {project.year}
+  </div> */}
       </div>
 
-      {/* Content Container */}
-      <div className="flex flex-col p-5 flex-grow">
-        {/* Project Meta Info */}
+      {/* Content — right side */}
+      <div className="flex flex-col flex-1 pt-1">
+        {/* Meta */}
         <div
-          className="flex justify-between items-start text-[10px] tracking-widest uppercase mb-3 font-medium"
+          className="flex gap-2 text-[10px] tracking-widest uppercase font-medium mb-4"
           style={{ color: "#9e9080" }}
         >
-          <div className="flex gap-2">
-            <span>{project.id}</span>
-            <span>—</span>
-            <span className="max-w-[180px] break-words">{project.client}</span>
-          </div>
-          <span className="shrink-0 text-right ml-2">{project.year}</span>
+          <span>{project.id}</span>
+          <span>—</span>
+          <span>{project.client || "Full-Stack"}</span>
         </div>
 
         {/* Title */}
         <h3
-          className="text-xl font-bold tracking-tight mb-3 leading-snug"
-          style={{ color: "#1a1a1a", fontFamily: "'Space Grotesk', sans-serif" }}
+          className="text-2xl font-bold tracking-tight leading-snug mb-4"
+          style={{
+            color: "#1a1a1a",
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}
         >
           {project.title}
         </h3>
@@ -69,12 +77,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.description}
         </p>
 
-        {/* Tags Group */}
-        <div className="flex flex-wrap gap-2 mt-auto mb-5">
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] tracking-wider font-semibold px-2 py-1 border rounded-sm"
+              className="text-[10px] tracking-wider font-semibold px-2 py-1 border"
               style={{
                 borderColor: "#e8e0d0",
                 color: "#7a6f65",
@@ -86,49 +94,35 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        {/* Project Links (GitHub & Live Demo) */}
-        <div className="flex items-center justify-end gap-4 pt-4 border-t border-[#e0d8cc] text-[10px] tracking-widest uppercase font-semibold">
-          <TooltipProvider>
-            {project.githubUrl && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 transition-opacity hover:opacity-70"
-                    style={{ color: "#7a6f65" }}
-                  >
-                    <SiGithub size={14} />
-                    <span>GitHub</span>
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>View source code on GitHub</p>
-                </TooltipContent>
-              </Tooltip>
-            )}
-
-            {project.liveDemoUrl && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    href={project.liveDemoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 transition-opacity hover:opacity-70"
-                    style={{ color: "#bf5220" }}
-                  >
-                    <ExternalLink size={14} />
-                    <span>Live Demo</span>
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Open live project demo</p>
-                </TooltipContent>
-              </Tooltip>
-            )}
-          </TooltipProvider>
+        {/* Links */}
+        <div
+          className="flex items-center gap-5 pt-4 border-t text-[10px] tracking-widest uppercase font-semibold"
+          style={{ borderColor: "#e0d8cc" }}
+        >
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:opacity-70 transition-opacity"
+              style={{ color: "#7a6f65" }}
+            >
+              <SiGithub size={14} />
+              <span>GitHub</span>
+            </a>
+          )}
+          {project.liveDemoUrl && (
+            <a
+              href={project.liveDemoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:opacity-70 transition-opacity"
+              style={{ color: "#bf5220" }}
+            >
+              <ExternalLink size={14} />
+              <span>Live Demo</span>
+            </a>
+          )}
         </div>
       </div>
     </div>

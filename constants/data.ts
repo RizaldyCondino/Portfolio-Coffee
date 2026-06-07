@@ -31,9 +31,10 @@ export interface Project {
   title: string;
   description: string;
   image: string;
+  video?: string;   // ← add this
   tags: string[];
-  githubUrl?: string;    // Added optional GitHub link
-  liveDemoUrl?: string;  // Added optional Live Demo link
+  githubUrl?: string;
+  liveDemoUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -43,10 +44,11 @@ export const projects: Project[] = [
     year: "2026 - PRESENT",
     title: "OzCrtz Ecommerce",
     description: "Developed a full-stack eCommerce application that allows users to browse products, manage favorites, add items to a cart, and securely complete purchases through Stripe. The platform includes product variant selection, inventory tracking, user authentication, and an intuitive admin content management system powered by Sanity CMS.",
+    video: "/videos/ozcrtz.mp4",
     image: "/Images/OzCrtz.png",
-    tags: ["REACT", "TYPESCRIPT", "TAILWIND", "STRIPE", "+10"],
-    githubUrl: "https://github.com/yourusername/ozcrtz-ecommerce",
-    liveDemoUrl: "https://ozcrtz-ecommerce.demo"
+    tags: ["REACT", "TYPESCRIPT", "TAILWIND", "STRIPE", "SANITY", "CLERK", "NEON/PRISMA"],
+    githubUrl: "https://github.com/RizaldyCondino",
+    liveDemoUrl: "https://ozcrtz.vercel.app"
   },
   {
     id: "02",
@@ -55,9 +57,10 @@ export const projects: Project[] = [
     title: "ShopCrtz Ecommerce",
     description: "Built a production-ready eCommerce platform using Next.js, React, TypeScript, Stripe, and Sanity CMS. Implemented authentication, product catalog management, shopping cart, wishlist, checkout flow, payment processing, and inventory tracking while focusing on performance, scalability, and user experience.",
     image: "/Images/EcommerceSc.png",
-    tags: ["REACT", "TYPESCRIPT", "TAILWIND", "STRIPE", "+10"],
-    githubUrl: "https://github.com/yourusername/shopcrtz-ecommerce",
-    liveDemoUrl: "https://shopcrtz-ecommerce.demo"
+    video: "/videos/ShopCrtz.mp4",
+    tags: ["REACT", "TYPESCRIPT", "TAILWIND", "STRIPE", "SANITY", "CLERK", "NEON/PRISMA"],
+    githubUrl: "https://github.com/RizaldyCondino",
+    liveDemoUrl: "https://shopcrtz.vercel.app"
   },
   {
     id: "03",
@@ -67,7 +70,7 @@ export const projects: Project[] = [
     description: "Developed a full-stack eCommerce platform using Laravel, Vue.js, Inertia.js, and MySQL. Implemented product management, inventory tracking, shopping cart functionality, user authentication, order processing, and Stripe payment integration. Built responsive user interfaces and optimized database queries to ensure a smooth and scalable shopping experience.",
     image: "/Images/ShopEcommerce_Vue.png",
     tags: ["LARAVEL", "VUEJS", "MYSQL", "STRIPE", "INERTIAJS"],
-    githubUrl: "https://github.com/yourusername/ecommerce-laravel",
-    liveDemoUrl: "https://ecommerce-laravel.demo"
+    githubUrl: "https://github.com/RizaldyCondino",
+    liveDemoUrl: "https://www.youtube.com/watch?v=7Sop-O-YO8Q"
   }
 ];
