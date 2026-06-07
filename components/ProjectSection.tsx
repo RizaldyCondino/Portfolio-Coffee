@@ -26,9 +26,9 @@ export function ProjectsSection() {
 
         {/* Projects — stacked rows */}
         <div className="flex flex-col divide-y" style={{ borderColor: "#e8e0d0" }}>
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {projects.map((project, i) => (
+  <ProjectCard key={project.id} project={project} index={i} />
+))}
         </div>
 
       </div>

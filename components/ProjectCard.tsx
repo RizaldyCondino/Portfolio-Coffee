@@ -14,10 +14,12 @@ interface Project {
   liveDemoUrl?: string;
 }
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
+  const isEven = index % 2 === 1; // odd-indexed cards flip
+
   return (
-    <div className="flex flex-col md:flex-row gap-10 py-10 group">
-      {/* Image — left side */}
+    <div className={`flex flex-col gap-10 py-10 group ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}>
+      {/* Image */}
       <div className="relative md:w-[55%] shrink-0 overflow-hidden rounded-sm">
         {project.video ? (
           <video
@@ -35,12 +37,10 @@ export function ProjectCard({ project }: { project: Project }) {
             className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
           />
         )}
-
- 
       </div>
 
-      {/* Content — right side */}
-      <div className="flex flex-col flex-1 pt-1">
+      {/* Content */}
+      <div className={`flex flex-col flex-1 pt-1 ${isEven ? "md:items-end md:text-right" : ""}`}>
         {/* Meta */}
         <div
           className="flex gap-2 text-[10px] tracking-widest uppercase font-medium mb-4"
@@ -54,25 +54,20 @@ export function ProjectCard({ project }: { project: Project }) {
         {/* Title */}
         <h3
           className="text-2xl font-bold tracking-tight leading-snug mb-4"
-          style={{
-            color: "#1a1a1a",
-            fontFamily: "'Space Grotesk', sans-serif",
-          }}
+          style={{ color: "#1a1a1a", fontFamily: "'Space Grotesk', sans-serif" }}
         >
           {project.title}
         </h3>
 
         {/* Description */}
-        <p
-          className="text-sm leading-relaxed mb-6 flex-grow"
-          style={{ color: "#7a6f65" }}
-        >
+        <p className="text-sm leading-relaxed mb-6 flex-grow" style={{ color: "#7a6f65" }}>
           {project.description}
         </p>
-        
+
         <h1 className="mb-3">Tech Stacks:</h1>
+
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className={`flex flex-wrap gap-2 mb-6 ${isEven ? "md:justify-end" : ""}`}>
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -90,7 +85,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
         {/* Links */}
         <div
-          className="flex items-center gap-5 pt-4 border-t text-[10px] tracking-widest uppercase font-semibold"
+          className={`flex items-center gap-5 pt-4 border-t text-[10px] tracking-widest uppercase font-semibold ${isEven ? "md:justify-end" : ""}`}
           style={{ borderColor: "#e0d8cc" }}
         >
           {project.githubUrl && (

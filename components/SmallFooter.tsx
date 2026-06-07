@@ -29,13 +29,7 @@ export function SmallFooter() {
           
           {/* Left Side - Info */}
           <div className="flex flex-col items-center md:items-start gap-3">
-            <div className="flex items-center gap-2">
-              <MapPin size={18} style={{ color: ORANGE }} />
-              <span className="text-sm" style={{ color: "#5a5148" }}>
-                San Jose del Monte, Philippines
-              </span>
-            </div>
-
+           
             <p className="text-[10px] text-center md:text-left" style={{ color: MUTED }}>
               © {new Date().getFullYear()} Rizaldy Condino. All Rights Reserved.
             </p>
