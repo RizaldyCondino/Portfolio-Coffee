@@ -1,13 +1,16 @@
+"use client";
 import { Mail, MapPin } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from 'react-icons/fa';
+import { ComposeModal } from "./ComposeModal";
+import { useState } from "react";
 
 const ORANGE = "#bf5220";
 const CREAM = "#f5f0e8";
 const BORDER = "#e0d8cc";
 const MUTED = "#9e9080";
 const INK = "#1a1a1a";
-
+ 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
     <span
@@ -30,17 +33,19 @@ function ContactCard({
   description,
   action,
   href,
+  target = "_blank",
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
   action: string;
   href: string;
+  target?: string;
 }) {
   return (
-    <a
-      href={href}
-      target="_blank"
+    
+    <a  href={href}
+      target={target}
       rel="noopener noreferrer"
       className="group rounded-sm border p-8 flex flex-col gap-6 transition-all hover:-translate-y-0.5 hover:shadow-xl"
       style={{ borderColor: BORDER, backgroundColor: CREAM }}
@@ -78,9 +83,11 @@ function ContactCard({
 
 /* ── MAIN CONTACT SECTION ── */
 export function ContactSection() {
+  const [showCompose, setShowCompose] = useState(false);
   return (
-    <section style={{ backgroundColor: "#f5f0e8" }} className="w-full">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-20">
+    
+    <section id="contact" style={{ backgroundColor: "#f5f0e8" }} className="w-full">
+      <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <div className="max-w-2xl mb-12">
           <Tag>Get In Touch</Tag>
@@ -102,13 +109,33 @@ export function ContactSection() {
 
         {/* Contact Methods Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ContactCard
-            icon={<Mail size={28} style={{ color: ORANGE }} />}
-            title="Email"
-            description="Feel free to reach out if you have any questions or just want to say hi."
-            action="Send me an email"
-            href="https://gmail.com"
-          />
+          <button
+        onClick={() => setShowCompose(true)}
+        className="group rounded-sm border p-8 flex flex-col gap-6 transition-all hover:-translate-y-0.5 hover:shadow-xl text-left w-full"
+        style={{ borderColor: BORDER, backgroundColor: CREAM }}
+      >
+        <div className="w-12 h-12 rounded-full border flex items-center justify-center"
+             style={{ borderColor: BORDER }}>
+          <Mail size={28} style={{ color: ORANGE }} />
+        </div>
+        <div>
+          <h3 className="text-2xl font-semibold mb-2"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: INK }}>
+            Email
+          </h3>
+          <p className="text-sm leading-relaxed" style={{ color: "#5a5148" }}>
+            Feel free to reach out if you have any questions or just want to say hi.
+          </p>
+        </div>
+        <div className="mt-auto pt-6 border-t flex items-center justify-between"
+             style={{ borderColor: BORDER }}>
+          <span className="text-sm font-medium" style={{ color: ORANGE }}>
+            Send me an email →
+          </span>
+        </div>
+      </button>
+
+      {showCompose && <ComposeModal open={showCompose} onClose={() => setShowCompose(false)} />}
 
           <ContactCard
             icon={<FaLinkedin size={28} style={{ color: ORANGE }} />}
@@ -154,19 +181,6 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* Final CTA */}
-        {/* <div className="mt-16 text-center">
-          <p className="text-sm uppercase tracking-widest" style={{ color: MUTED }}>
-            Or just say hello
-          </p>
-          <a
-            href="mailto:your.email@example.com"
-            className="inline-block mt-4 px-10 py-4 rounded-sm border text-lg font-medium hover:bg-white transition-colors"
-            style={{ borderColor: BORDER, color: INK }}
-          >
-            rizaldycondino07@gmail.com
-          </a>
-        </div> */}
       </div>
     </section>
   );

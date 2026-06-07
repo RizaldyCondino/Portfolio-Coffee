@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const stats = [
   { value: "0.6", label: "Corporate\nYears" },
   { value: "10k+", label: "Lines of Code\nWritten" },
-  { value: "∞", label: "Google / Docs\nSearches" },
+  { value: "∞", label: "Google / AI\nSearches" },
 ];
 
 const scrollToSection = (id: string) => {
@@ -18,7 +18,7 @@ const scrollToSection = (id: string) => {
 
 export function HeroSection() {
   return (
-    <section style={{ backgroundColor: "#f5f0e8",  }} className="w-full">
+    <section id="home" style={{ backgroundColor: "#f5f0e8",  }} className="w-full">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-12 md:py-13 lg:py-14">
         
         <div className="flex flex-col md:flex-row items-start lg:items-center gap-12 lg:gap-20">

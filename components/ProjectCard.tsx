@@ -36,14 +36,7 @@ export function ProjectCard({ project }: { project: Project }) {
           />
         )}
 
-        {/* Badge overlay
-  <div
-    className="absolute bottom-3.5 left-3.5 flex items-center gap-2 bg-white px-3 py-1.5 text-[10px] tracking-widest uppercase font-semibold"
-    style={{ color: "#1a1a1a" }}
-  >
-    <span className="w-1.5 h-1.5 rounded-full bg-[#bf5220] shrink-0" />
-    {project.title} · {project.year}
-  </div> */}
+ 
       </div>
 
       {/* Content — right side */}
@@ -76,7 +69,8 @@ export function ProjectCard({ project }: { project: Project }) {
         >
           {project.description}
         </p>
-
+        
+        <h1 className="mb-3">Tech Stacks:</h1>
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag) => (

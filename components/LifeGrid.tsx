@@ -170,8 +170,8 @@ function TechStackCard() {
 /* ── GRID ── */
 export function LifeGrid() {
   return (
-    <section style={{ backgroundColor: "#f5f0e8" }} className="w-full">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-16 flex flex-col gap-8">
+    <section id="about" style={{ backgroundColor: "#f5f0e8" }} className="w-full">
+      <div className="max-w-screen-xl mx-auto px-6 lg:px-10  flex flex-col gap-8">
         
         {/* Header */}
         <div className="max-w-2xl">

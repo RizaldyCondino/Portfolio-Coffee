@@ -3,12 +3,13 @@ import { ProjectCard } from "./ProjectCard";
 
 export function ProjectsSection() {
   return (
-    <section style={{ backgroundColor: "#f5f0e8" }} className="w-full py-16">
+    <section id="projects" style={{ backgroundColor: "#f5f0e8" }} className="w-full ">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b pb-8 mb-12" style={{ borderColor: "#e8e0d0" }}>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b pb-8 " style={{ borderColor: "#e8e0d0" }}>
           <h2
+          
             className="leading-tight tracking-tight"
             style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2rem, 3vw, 3.5rem)", fontWeight: 700, color: "#1a1a1a" }}
           >
