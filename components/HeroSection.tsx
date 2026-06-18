@@ -73,7 +73,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.7 }}
             >
-              I'm an aspiring Junior FullStack who enjoys building modern, responsive, and functional web applications. I like turning ideas into clean and user-friendly interfaces while continuously learning and improving my skills as a developer.
+              I'm an aspiring Junior Full-Stack Developer specializing in AI-assisted development and modern web applications. who enjoys building modern, responsive, and functional web applications. I like turning ideas into clean and user-friendly interfaces while continuously learning and improving my skills as a developer.
             </motion.p>
 
             {/* Action Buttons */}

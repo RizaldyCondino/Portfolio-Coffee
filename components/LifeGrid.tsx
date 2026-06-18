@@ -38,7 +38,7 @@ function WorkCard() {
           color: INK,
         }}
       >
-        Junior Full Stack Developer
+        Full Stack Developer Specializing in AI.
       </h2>
 
       <p className="text-sm leading-relaxed" style={{ color: "#5a5148" }}>
@@ -187,7 +187,7 @@ export function LifeGrid() {
             About Me
           </h2>
           <p className="mt-4 text-lg" style={{ color: "#5a5148" }}>
-            A self-taught Full Stack Developer.
+            A self-taught Full-Stack Developer specializing in AI.
           </p>
         </div>
 
